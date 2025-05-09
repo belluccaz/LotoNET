@@ -38,7 +38,7 @@ Sistema gratuito e open-source de análise de resultados das loterias da Caixa E
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/seuusuario/LotoNET.git
+git clone https://github.com/belluccaz/LotoNET.git
 cd LotoNET
 ```
 
