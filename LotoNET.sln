@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotoNET.API", "LotoNET.API\LotoNET.API.csproj", "{58BD410E-B106-4CEA-AA3F-87563F2AE42B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotoNET.Application", "LotoNET.Application\LotoNET.Application.csproj", "{18648A65-E36B-498A-8A9F-A82DE201AC28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotoNET.Domain", "LotoNET.Domain\LotoNET.Domain.csproj", "{08D39CD2-329C-4652-9ABD-C52E0927A0D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotoNET.Infrastructure", "LotoNET.Infrastructure\LotoNET.Infrastructure.csproj", "{E068227C-4B2E-409A-9E99-F84CF7A2C4EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58BD410E-B106-4CEA-AA3F-87563F2AE42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BD410E-B106-4CEA-AA3F-87563F2AE42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BD410E-B106-4CEA-AA3F-87563F2AE42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BD410E-B106-4CEA-AA3F-87563F2AE42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18648A65-E36B-498A-8A9F-A82DE201AC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18648A65-E36B-498A-8A9F-A82DE201AC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18648A65-E36B-498A-8A9F-A82DE201AC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18648A65-E36B-498A-8A9F-A82DE201AC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08D39CD2-329C-4652-9ABD-C52E0927A0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D39CD2-329C-4652-9ABD-C52E0927A0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D39CD2-329C-4652-9ABD-C52E0927A0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D39CD2-329C-4652-9ABD-C52E0927A0D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E068227C-4B2E-409A-9E99-F84CF7A2C4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E068227C-4B2E-409A-9E99-F84CF7A2C4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E068227C-4B2E-409A-9E99-F84CF7A2C4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E068227C-4B2E-409A-9E99-F84CF7A2C4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
