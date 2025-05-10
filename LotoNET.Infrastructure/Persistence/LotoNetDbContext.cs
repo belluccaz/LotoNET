@@ -13,6 +13,8 @@ public class LotoNetDbContext : DbContext
 
     public DbSet<Lottery> Lotteries => Set<Lottery>();
     public DbSet<Draw> Draws => Set<Draw>();
+    public DbSet<User> Users { get; set; }
+    public DbSet<UserPreferences> UserPreferences { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
