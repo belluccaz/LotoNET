@@ -9,9 +9,10 @@ using DotNetEnv;
 // Carrega variáveis do .env
 Env.Load();
 
+// Criação do builder
 var builder = WebApplication.CreateBuilder(args);
 
-// Monta connection string manualmente com base no .env
+// Monta a connection string manualmente com base no .env
 var host = Environment.GetEnvironmentVariable("POSTGRES_HOST");
 var port = Environment.GetEnvironmentVariable("POSTGRES_PORT");
 var user = Environment.GetEnvironmentVariable("POSTGRES_USER");
@@ -20,27 +21,34 @@ var database = Environment.GetEnvironmentVariable("POSTGRES_DB");
 
 var connectionString = $"Host={host};Port={port};Username={user};Password={password};Database={database}";
 
-// Injeta o DbContext com a connection string dinâmica
+// Injeção do DbContext
 builder.Services.AddDbContext<LotoNetDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-// Injeções de dependência
+// Serviços da aplicação
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IJsonImportService, JsonImportService>();
 builder.Services.AddScoped<ILotteryImporter, LotteryImporter>();
-builder.Services.AddHttpClient<ILotteryApiService, LotteryApiService>();
+builder.Services.AddScoped<ILotteryApiService, LotteryApiService>();
 
-// Slugify Convention para rotas automáticas minúsculas
+// HttpClient necessário para resolver IHttpClientFactory em AuthService e LotteryApiService
+builder.Services.AddHttpClient();
+
+// Controllers com rotas slugificadas
 builder.Services.AddControllers(options =>
 {
     options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
 });
 
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Build da aplicação
 var app = builder.Build();
 
-// Middleware de Swagger
+// Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -50,7 +58,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 app.MapControllers();
 
-// Importa loterias automaticamente da API externa
+// Importação inicial de dados das loterias
 using (var scope = app.Services.CreateScope())
 {
     var importer = scope.ServiceProvider.GetRequiredService<ILotteryImporter>();
@@ -62,10 +70,11 @@ using (var scope = app.Services.CreateScope())
         await importer.ImportFromApiAsync(nome);
     }
 
-    // Import local (comentado)
+    // Importação local comentada
     /*
     var importerLocal = scope.ServiceProvider.GetRequiredService<IJsonImportService>();
     var dataDir = Path.Combine(Directory.GetCurrentDirectory(), "data");
+
     var arquivos = new[]
     {
         Path.Combine(dataDir, "megasena.json"),
