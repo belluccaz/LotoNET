@@ -13,7 +13,6 @@ Sistema gratuito e open-source de análise de resultados das loterias da Caixa E
 - Consulta por loteria, concurso ou últimos resultados
 - Estatísticas: dezenas mais sorteadas e frequência por posição
 - Backend robusto com arquitetura limpa e boas práticas
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
@@ -25,6 +24,7 @@ Sistema gratuito e open-source de análise de resultados das loterias da Caixa E
 - PostgreSQL (via Supabase ou local)
 - Docker (em breve)
 - Arquitetura: Clean Architecture + DDD
+- **Com o auxílio de IA** em certos passos do desenvolvimento.
 
 ### Frontend (em breve)
 
